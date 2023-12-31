@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
@@ -9,4 +11,5 @@ def calculate():
     return jsonify({'result': result})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80, debug=False)
+
